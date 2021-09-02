@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "326baa53-e79f-4a83-b798-2af6213aba40",
+		"name": "douban",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_api",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//以普通字符串URL为例\r",
+							"pm.sendRequest('https://postman-echo.com/get',function(err,res){\r",
+							"    if(err){\r",
+							"        console.log(err);\r",
+							"    }else{\r",
+							"        pm.environment.set(\"variable_key\",\"new_value\");\r",
+							"    }\r",
+							"\r",
+							"});\r",
+							"//使用完整的SDK请求为例\r",
+							"const echoPostRequest={\r",
+							"    url:'https://postman-echo.com/post',\r",
+							"    method:'POST',\r",
+							"    header:'headername1:value1',\r",
+							"    body:{\r",
+							"        mode:'raw',\r",
+							"        raw:JSON.stringify({key:'this is json'})\r",
+							"    }\r",
+							"};\r",
+							"pm.sendRequest(echoPostRequest,function(err,res)\r",
+							"{\r",
+							"    console.log(err?err:res.JSON());\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test只能在Test选项卡下使用\r",
+							"pm.sendRequest('https://postman-echo.com/get',function(err,res){\r",
+							"    if(err){console.log(err);}\r",
+							"    pm.test('response should be okey to process',function(){\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(err).to.have.property('code',200);\r",
+							"        pm.expect(err).to.have.property('status','ok');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.douban.com/v2/book/search?q=笑傲江湖",
+					"protocol": "https",
+					"host": [
+						"api",
+						"douban",
+						"com"
+					],
+					"path": [
+						"v2",
+						"book",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "笑傲江湖"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_api_test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//以普通字符串URL为例\r",
+							"pm.sendRequest('https://postman-echo.com/get',function(err,res){\r",
+							"    if(err){\r",
+							"        console.log(err);\r",
+							"    }else{\r",
+							"        pm.environment.set(\"variable_key\",\"new_value\");\r",
+							"    }\r",
+							"\r",
+							"});\r",
+							"//使用完整的SDK请求为例\r",
+							"const echoPostRequest={\r",
+							"    url:'https://postman-echo.com/post',\r",
+							"    method:'POST',\r",
+							"    header:'headername1:value1',\r",
+							"    body:{\r",
+							"        mode:'raw',\r",
+							"        raw:JSON.stringify({key:'this is json'})\r",
+							"    }\r",
+							"};\r",
+							"pm.sendRequest(echoPostRequest,function(err,res)\r",
+							"{\r",
+							"    console.log(err?err:res.JSON());\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.test只能在Test选项卡下使用\r",
+							"pm.sendRequest('https://postman-echo.com/get',function(err,res){\r",
+							"    if(err){console.log(err);}\r",
+							"    pm.test('response should be okey to process',function(){\r",
+							"        pm.expect(err).to.equal(null);\r",
+							"        pm.expect(err).to.have.property('code',200);\r",
+							"        pm.expect(err).to.have.property('status','ok');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.douban.com/v2/book/search?q=笑傲江湖",
+					"protocol": "https",
+					"host": [
+						"api",
+						"douban",
+						"com"
+					],
+					"path": [
+						"v2",
+						"book",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "笑傲江湖"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
